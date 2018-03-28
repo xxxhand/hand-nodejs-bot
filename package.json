@@ -4,7 +4,7 @@
   "description": "line bot example",
   "main": "bin/Launch.js",
   "scripts": {
-    "start": "export NODE_ENV=local && node bin/Launch.js",
+    "start": "export NODE_ENV=dev && node bin/Launch.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "hand",
