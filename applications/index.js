@@ -1,0 +1,1 @@
+exports.HelloApiApplication = require('./apis/HelloApiApplication')
