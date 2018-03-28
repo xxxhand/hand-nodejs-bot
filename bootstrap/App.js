@@ -19,6 +19,6 @@ module.exports = () => {
     appInstance.use('/', appRouter.mainRouter)
     appInstance.use('/api', appRouter.apiRouter)
 
-    appInstance.listen(8080)
+    // appInstance.listen(8080)
     return appInstance
 }
