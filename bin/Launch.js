@@ -1,6 +1,6 @@
 const app = require('./../bootstrap/App')
 
-app().listen(8080, err => {
+app().listen(process.env.PORT || 8080, err => {
     if (err) {
         console.error(err)
         return process.exit(0)
