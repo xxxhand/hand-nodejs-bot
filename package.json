@@ -2,9 +2,9 @@
   "name": "hand-nodejs-bot",
   "version": "1.0.0",
   "description": "line bot example",
-  "main": "bin/Launch.js",
+  "main": "bootstrap/App.js",
   "scripts": {
-    "start": "export NODE_ENV=dev && node bin/Launch.js",
+    "start": "export NODE_ENV=dev && node bootstrap/App.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "hand",

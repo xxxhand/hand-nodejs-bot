@@ -12,12 +12,13 @@ module.exports = () => {
         throw new Error(`${configPath} does not exist`);
     }
     global.appConfig = JSON.parse(fs.readFileSync(configPath))
-    
+
     const appInstance = express()
     appInstance.use(bodyParser.json({ limit: '50mb' }))
     appInstance.use(bodyParser.urlencoded({ extended: false }))
     appInstance.use('/', appRouter.mainRouter)
     appInstance.use('/api', appRouter.apiRouter)
 
+    appInstance.listen(8080)
     return appInstance
 }
