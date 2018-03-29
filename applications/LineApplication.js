@@ -16,8 +16,11 @@ const handleLineEvent = event => {
 }
 module.exports = class LineAppication {
 
-    middleware() {
+    bodyToString(req, res, next) {
         req.body = JSON.stringify(req.body)
+        next()
+    }
+    middleware() {
         return line.middleware(lineConfig)
     }
     finalHandle(req, res) {
