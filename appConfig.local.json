@@ -1,4 +1,8 @@
 {
     "domain": "localhost",
-    "port": 8082
+    "port": 8080,
+    "lineSettings": {
+        "channelAccessToken": "1570993459",
+        "channelSecret": "f9e01a93b0f5327b8a24fb3fc5ff919d"
+    }
 }

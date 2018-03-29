@@ -4,6 +4,9 @@ const applicationIndex = require('./../applications/index')
 function initMainRouter() {
     const mainRouter = express.Router()
 
+    const lineApp = new applicationIndex.LineApplication()
+    mainRouter.post('/linehook', lineApp.middleware(), lineApp.finalHandle)
+
     mainRouter.all('/', (req, res) => {
         res.send('Hello world')
     })
