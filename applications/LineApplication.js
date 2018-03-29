@@ -15,14 +15,8 @@ const handleLineEvent = event => {
     })
 }
 module.exports = class LineAppication {
-    middleware(req, res, next) {
-        console.log(req.body)
-        return line.middleware(lineConfig)
-
-        // return function(req, res, next) {
-        //     console.log(req.body)
-        //     next()
-        // }
+    constructor() {
+        this.middleware = line.middleware(lineConfig)
     }
     finalHandle(req, res) {
         Promise.all(req.body.events.map(handleLineEvent))
