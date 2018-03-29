@@ -5,7 +5,7 @@ function initMainRouter() {
     const mainRouter = express.Router()
 
     const lineApp = new applicationIndex.LineApplication()
-    mainRouter.post('/linehook', lineApp.middleware(), lineApp.finalHandle)
+    mainRouter.post('/linehook', lineApp.middleware, lineApp.finalHandle)
 
     mainRouter.all('/', (req, res) => {
         res.send('Hello world')
