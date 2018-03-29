@@ -15,8 +15,9 @@ const handleLineEvent = event => {
     })
 }
 module.exports = class LineAppication {
-    constructor() {
-        this.middleware = line.middleware(lineConfig)
+
+    middleware() {
+        return line.middleware(lineConfig)
     }
     finalHandle(req, res) {
         console.log(req.body)
