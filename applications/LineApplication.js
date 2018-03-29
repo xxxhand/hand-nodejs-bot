@@ -16,7 +16,7 @@ const handleLineEvent = event => {
 }
 module.exports = class LineAppication {
     middleware(req, res, next) {
-        // console.log(lineConfig.channelAccessToken)
+        console.log(req.body)
         return line.middleware(lineConfig)
 
         // return function(req, res, next) {
@@ -25,8 +25,8 @@ module.exports = class LineAppication {
         // }
     }
     finalHandle(req, res) {
-        // Promise.all(req.body.events.map(handleLineEvent))
-        // .then(x => res.json(x))
+        Promise.all(req.body.events.map(handleLineEvent))
+        .then(x => res.json(x))
 
         // res.json({tt:'rr'})
     }
