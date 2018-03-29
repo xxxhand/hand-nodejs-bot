@@ -9,6 +9,7 @@ const handleLineEvent = event => {
         return Promise.resolve(null)
     }
 
+    console.log(event)
     return lineClient.replyMessage(event.replyToken, {
         type: 'text',
         text: event.message.text
