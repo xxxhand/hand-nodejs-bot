@@ -9,17 +9,14 @@ const handleLineEvent = event => {
         return Promise.resolve(null)
     }
 
-    console.log(event)
     return lineClient.replyMessage(event.replyToken, {
         type: 'text',
         text: event.message.text
     })
 }
 module.exports = class LineAppication {
-    constructor() {
-        this.middleware = line.middleware(lineConfig)
-    }
     finalHandle(req, res) {
+        console.log(req.body)
         Promise.all(req.body.events.map(handleLineEvent))
         .then(x => res.json(x))
 
