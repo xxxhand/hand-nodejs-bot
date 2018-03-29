@@ -12,8 +12,8 @@ module.exports = () => {
     
 
     const appInstance = express()
-    // appInstance.use(bodyParser.json({ limit: '50mb' }))
-    // appInstance.use(bodyParser.urlencoded({ extended: false }))
+    appInstance.use(bodyParser.json({ limit: '50mb' }))
+    appInstance.use(bodyParser.urlencoded({ extended: false }))
     appInstance.use('/', appRouter.mainRouter)
     appInstance.use('/api', appRouter.apiRouter)
 

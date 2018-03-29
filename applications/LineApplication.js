@@ -17,11 +17,12 @@ const handleLineEvent = event => {
 module.exports = class LineAppication {
 
     middleware() {
+        req.body = JSON.stringify(req.body)
         return line.middleware(lineConfig)
     }
     finalHandle(req, res) {
-        console.log(req.body)
-        Promise.all(req.body.events.map(handleLineEvent))
-        .then(x => res.json(x))
+        Promise
+            .all(req.body.events.map(handleLineEvent))
+            .then(x => res.json(x))
     }
 }
