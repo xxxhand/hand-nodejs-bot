@@ -5,7 +5,7 @@ const lineConfig = {
 }
 const lineClient = new line.Client(lineConfig)
 const handleLineEvent = event => {
-    if (event.type !== 'message' || event.message.type !== 'string') {
+    if (event.type !== 'message' || event.message.type !== 'text') {
         return Promise.resolve(null)
     }
 
