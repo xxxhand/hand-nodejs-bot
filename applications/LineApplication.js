@@ -16,7 +16,7 @@ const handleLineEvent = event => {
 }
 module.exports = class LineAppication {
 
-    bodyToString(req, res, next) {
+    preHandle(req, res, next) {
         req.body = JSON.stringify(req.body)
         next()
     }
