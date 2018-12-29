@@ -11,7 +11,7 @@ const handleLineEvent = event => {
 
     return lineClient.replyMessage(event.replyToken, {
         type: 'text',
-        text: event.message.text
+        text: `${event.message.text}_hand`
     })
 }
 module.exports = class LineAppication {
