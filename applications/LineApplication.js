@@ -27,5 +27,8 @@ module.exports = class LineAppication {
         Promise
             .all(req.body.events.map(handleLineEvent))
             .then(x => res.json(x))
+            .catch(e => {
+                console.log(e);
+            })
     }
 }
