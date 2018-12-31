@@ -1,0 +1,1 @@
+exports.Weather = require('./weather').Weather;
