@@ -59,7 +59,7 @@ const _findByLocation = async (locationName) => {
     if (WEATHERS.length === 0) {
         await _getAll();
     }
-    const d = WEATHERS.find(x => x.locationName === locationName);
+    const d = WEATHERS.filter(x => x.locationName.includes(locationName));
 
     return Promise.resolve(d);
 

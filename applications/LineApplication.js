@@ -19,13 +19,18 @@ const handleLineEvent = event => {
                 type: 'text',
                 text: ''
             }
-            if (!weatherObject) {
-                replyMessage.text = `Not found location ${event.message.text}`;
+            if (weatherObject.length > 0) {
+                weatherObject.map(x => replyMessage.text += `${locationName}:${x.description}-${x.temperature}\n`);
             } else {
-                replyMessage.text = `${weatherObject.locationName}
-                        ${weatherObject.description}
-                        ${weatherObject.temperature}`;
+                replyMessage.text = `Not found location: ${event.message.text}`;
             }
+            // if (!weatherObject) {
+            //     replyMessage.text = `Not found location ${event.message.text}`;
+            // } else {
+            //     replyMessage.text = `${weatherObject.locationName}
+            //             ${weatherObject.description}
+            //             ${weatherObject.temperature}`;
+            // }
 
             return lineClient.replyMessage(event.replyToken, replyMessage);
         })
