@@ -22,7 +22,7 @@ const handleLineEvent = event => {
             if (weatherObject.length > 0) {
                 weatherObject.map(x => replyMessage.text += `${x.locationName}:${x.description}-${x.temperature}\n`);
             } else {
-                replyMessage.text = `Not found location: ${event.message.text}`;
+                replyMessage.text = `Not found: ${event.message.text}`;
             }
             // if (!weatherObject) {
             //     replyMessage.text = `Not found location ${event.message.text}`;
