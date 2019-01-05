@@ -8,6 +8,7 @@ const FBC_LID = 'IwAR26Kz5bEl1PGB6Ac5RsGnvyKyP2pXvg9c1aeGeoYOcoNv5JCMq550IYTdE';
 const WEATHERS = [];
 
 const _getAll = async () => {
+    WEATHERS.length = 0;
     const opt = {
         uri: `${CWB_URI}?Authorization=${AUTH_TOKEN}&fbclid=${FBC_LID}`
     }
