@@ -17,6 +17,9 @@ function initMainRouter() {
 function initApiRouter() {
     const apiRouter = express.Router()
 
+    const parkingApiApp = applicationIndex.ParkingApiApplication;
+    apiRouter.route('/parkings').post(parkingApiApp.findByRoadName);
+
     const helloApiApp = new applicationIndex.HelloApiApplication()
     apiRouter.get('/', helloApiApp.executeHello)
 
