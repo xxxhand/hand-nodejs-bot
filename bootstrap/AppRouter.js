@@ -21,7 +21,7 @@ function initApiRouter() {
     apiRouter.route('/parkings').post(parkingApiApp.findByRoadName);
 
     const dialogFlowApiApp = applicationIndex.DialogFlowApiApplication;
-    apiRouter.route('/fulfillments/parkings', dialogFlowApiApp.findByRoadName);
+    apiRouter.route('/fulfillments/parkings').post(dialogFlowApiApp.findByRoadName);
 
     const helloApiApp = new applicationIndex.HelloApiApplication()
     apiRouter.get('/', helloApiApp.executeHello)
