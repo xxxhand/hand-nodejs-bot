@@ -1,7 +1,10 @@
+const path = require('path')
+const fs = require('fs-extra')
 const express = require('express')
 const applicationIndex = require('./../applications/index')
 
 
+const _VIEW_PATH = '../applications/views'
 
 function initMainRouter() {
     const mainRouter = express.Router()
@@ -9,6 +12,16 @@ function initMainRouter() {
     const lineApp = new applicationIndex.LineApplication()
     mainRouter.post('/linehook', lineApp.preHandle, lineApp.middleware(), lineApp.finalHandle)
 
+    mainRouter
+        .get('/line-io/register', async (req, res) => {
+            try {
+                const f = await fs.readFile(path.resolve(__dirname, `${_VIEW_PATH}/register.html`))
+                res.send(f.toString())
+            } catch (ex) {
+                console.log(ex)
+                res.send(`I am fail`)
+            }
+        })
     mainRouter.all('/', (req, res) => res.send('Hello world'))
 
     return mainRouter
