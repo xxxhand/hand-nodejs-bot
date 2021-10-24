@@ -16,10 +16,19 @@ function initMainRouter() {
     mainRouter
         .get('/line-io/register', async (req, res) => {
             try {
-                // const f = await fs.readFile(path.resolve(__dirname, `${_VIEW_PATH}/register.html`))
-                // res.send(f.toString())
-                const iam = req.query.iam;
-                const f = await ejs.renderFile(path.resolve(__dirname, `${_VIEW_PATH}/register.ejs`), { iam })
+                let q = {};
+                if (req.query['liff.state'] !== void 0) {
+                    const qryAry = req.query['liff.state'].replace('?', '').split('&');
+                    qryAry.forEach(x => {
+                        const k = x.split('=');
+                        q[k[0]] = k[1] 
+                    })
+                } else {
+                    q = req.query
+                }
+                
+                console.log(q)
+                const f = await ejs.renderFile(path.resolve(__dirname, `${_VIEW_PATH}/register.ejs`), { iam: q.iam })
                 res.send(f.toString())
             } catch (ex) {
                 console.log(ex)
