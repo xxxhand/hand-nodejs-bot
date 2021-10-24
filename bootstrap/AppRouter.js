@@ -18,8 +18,8 @@ function initMainRouter() {
             try {
                 // const f = await fs.readFile(path.resolve(__dirname, `${_VIEW_PATH}/register.html`))
                 // res.send(f.toString())
-
-                const f = await ejs.renderFile(path.resolve(__dirname, `${_VIEW_PATH}/register.ejs`), { iam: 'I am ejs!!!' })
+                const iam = req.query.iam;
+                const f = await ejs.renderFile(path.resolve(__dirname, `${_VIEW_PATH}/register.ejs`), { iam })
                 res.send(f.toString())
             } catch (ex) {
                 console.log(ex)
