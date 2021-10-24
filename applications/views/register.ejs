@@ -9,15 +9,19 @@
 
       function initLiff() {
         liff.init({
-          liffId: '1656563359-xNkPAOjg'
+          liffId: '1656564093-qgBpjdky'
         }).then(() => {
           runApp();
+
+          var a = document.getElementById('am');
+          alert(a.value);
 
         }).catch((ex) => console.error(ex));
       }
     </script>
   </head>
   <body  onload="initLiff()">
+    <input id="am" type="hidden" value="<%= iam %>"" />
     <div id="hello"></div>
     <div><%= iam %></div>
   </body>
