@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+    <script lang="javascript">
+      function runApp() {
+        var hel = document.getElementById("hello");
+        hel.innerHTML = "Hello world";
+      }
+
+      function initLiff() {
+        liff.init({
+          liffId: '1656563359-xNkPAOjg'
+        }).then(() => {
+          runApp();
+
+        }).catch((ex) => console.error(ex));
+      }
+    </script>
+  </head>
+  <body  onload="initLiff()">
+    <div id="hello"></div>
+    <div><%= iam %></div>
+  </body>
+</html>

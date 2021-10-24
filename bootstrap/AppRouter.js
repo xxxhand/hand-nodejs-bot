@@ -1,5 +1,6 @@
 const path = require('path')
 const fs = require('fs-extra')
+const ejs = require('ejs')
 const express = require('express')
 const applicationIndex = require('./../applications/index')
 
@@ -15,7 +16,10 @@ function initMainRouter() {
     mainRouter
         .get('/line-io/register', async (req, res) => {
             try {
-                const f = await fs.readFile(path.resolve(__dirname, `${_VIEW_PATH}/register.html`))
+                // const f = await fs.readFile(path.resolve(__dirname, `${_VIEW_PATH}/register.html`))
+                // res.send(f.toString())
+
+                const f = await ejs.renderFile(path.resolve(__dirname, `${_VIEW_PATH}/register.ejs`), { iam: 'I am ejs!!!' })
                 res.send(f.toString())
             } catch (ex) {
                 console.log(ex)
