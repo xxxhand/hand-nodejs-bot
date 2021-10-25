@@ -28,7 +28,7 @@ function initMainRouter() {
                 }
                 
                 console.log(q)
-                const f = await ejs.renderFile(path.resolve(__dirname, `${_VIEW_PATH}/register.ejs`), { iam: q.iam })
+                const f = await ejs.renderFile(path.resolve(__dirname, `${_VIEW_PATH}/register.ejs`), { iam: q.iam, uri: req.originalUrl })
                 res.send(f.toString())
             } catch (ex) {
                 console.log(ex)
