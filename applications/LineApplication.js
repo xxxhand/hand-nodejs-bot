@@ -65,6 +65,7 @@ module.exports = class LineAppication {
         return line.middleware(lineConfig)
     }
     finalHandle(req, res) {
+        console.log(req.body.events)
         Promise
             .all(req.body.events.map(handleLineEvent))
             .then(x => res.json(x))

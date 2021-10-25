@@ -7,6 +7,18 @@
         hel.innerHTML = "Hello world";
       }
 
+      function getProfile() {
+        const pro = document.getElementById('pro');
+        const err = document.getElementById('err');
+        liff.getProfile()
+          .then(p => {
+            pro.innerHTML = JSON.stringify(p);
+          })
+          .catch(ex => {
+            err.innerHTML = ex.message;
+          })
+      }
+
       function initLiff() {
         liff.init({
           liffId: '1656565065-NxpEKVzE'
@@ -15,6 +27,7 @@
 
           var a = document.getElementById('am');
           alert(a.value);
+          getProfile()
 
         }).catch((ex) => console.error(ex));
       }
@@ -25,5 +38,7 @@
     <div id="hello"></div>
     <div><%= iam %></div>
     <div><%= uri %></div>
+    <div id="pro"></div>
+    <div id="err"></div>
   </body>
 </html>
